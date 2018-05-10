@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +19,25 @@
     <script src="scripts/controllers/entry.controller.js"></script>
     <script src="scripts/controllers/project.controller.js"></script>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Time Keeper</title>
 </head>
+
 <body ng-app="TimeApp">
-    <h1>Time Keeper</h1>
-    <ng-view></ng-view>
+    <md-content class="">
+        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#!/" name="home">
+                Home
+            </md-nav-item>
+            <md-nav-item md-nav-href="#!/entries" name="entries">
+                Entries
+            </md-nav-item>
+            <md-nav-item md-nav-href="#!/projects" name="page3">
+                Projects
+            </md-nav-item>
+        </md-nav-bar>
+    </md-content>
+    <main ng-view></main>
 </body>
+
 </html>
