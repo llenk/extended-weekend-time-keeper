@@ -3,9 +3,9 @@
 ##Base Mode
 
 ###Project Setup
-- [ ] Create server
+- [x] Create server
 - [ ] Set up public folder
-- [ ] Add vendor JS files
+- [x] Add vendor JS files
 - [ ] Set up static HTML file
 - [ ] Set up basic file structure
 
