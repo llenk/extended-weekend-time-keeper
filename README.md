@@ -21,9 +21,9 @@ CREATE TABLE "projects" (
 );
 ```
 
-##Base Mode
+## Base Mode
 
-###Project Setup
+### Project Setup
 - [x] Create server
 - [x] Set up public folder
 - [x] Add vendor JS files
