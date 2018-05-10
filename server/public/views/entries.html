@@ -3,6 +3,12 @@
 <form ng-submit="vm.submitTimeEntry()">
     <h3>Submit Time</h3>
     <div layout="row">
+        <div layout="column" flex="80">
+            <label for="name">Short Description</label>
+            <input type="text" id="name" ng-value="vm.newTime.description">
+        </div>
+    </div>
+    <div layout="row">
         <div layout="column" flex="40">
             <label for="startDate">Start Date</label>
             <input type="date" id="startDate" ng-value="vm.newTime.startDate" />

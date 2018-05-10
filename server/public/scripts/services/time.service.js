@@ -3,6 +3,7 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function($http, $m
     const self = this;
 
     self.newTime = {
+        description: '',
         startDate: '',
         startTime: '',
         endDate: '',

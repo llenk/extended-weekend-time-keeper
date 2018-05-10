@@ -1,5 +1,26 @@
 # Time Keeper
 
+## Database notes
+The projects table contains id, name, and description. The entries table contains id, name, start_time (TIMESTAMP), end_time (TIMESTAMP), time_quarter_hours (the number of quarter hours the task took, rounded up to quarter hours, so a task that took 30 minutes would have a value of 2 in this column), and project (references id of the projects table). 
+
+### Queries
+```
+CREATE TABLE "entries" (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(200),
+	"start_time" TIMESTAMP,
+	"end_time" TIMESTAMP,
+	"time_quarter_hours" INTEGER,
+	"project" INT REFERENCES "projects" ON DELETE CASCADE
+);
+
+CREATE TABLE "projects" (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(200),
+	"description" VARCHAR(2000)
+);
+```
+
 ##Base Mode
 
 ###Project Setup
@@ -11,12 +32,12 @@
 
 ### HTML Form for Time
 - [x] Make HTML form
-- [ ] Style nicely HTML form
+- [x] Style nicely HTML form
 
 ### Database with Tables
-- [ ] Create projects database
-- [ ] Create entries database
-- [ ] Add create table queries to README
+- [x] Create projects database
+- [x] Create entries database
+- [x] Add create table queries to README
 
 ### POST Route
 - [ ] Logic for time calculation
