@@ -8,7 +8,7 @@ var port = process.env.PORT || 5000;
 app.use(express.static('server/public'));
 app.use(bodyParser.json());
 
-app.use('/entries', entryRouter);
+app.use('/entry', entryRouter);
 
 
 app.listen(port, function(){

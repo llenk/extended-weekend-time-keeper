@@ -1,37 +1,37 @@
 <h2>Entries</h2>
 
+<h3>Add Entry</h3>
 <form ng-submit="vm.submitTimeEntry()">
-    <h3>Submit Time</h3>
     <div layout="row">
         <div layout="column" flex="80">
             <label for="name">Short Description</label>
-            <input type="text" id="name" ng-value="vm.newTime.description">
+            <input type="text" id="name" ng-model="vm.newTime.description">
         </div>
     </div>
     <div layout="row">
         <div layout="column" flex="40">
             <label for="startDate">Start Date</label>
-            <input type="date" id="startDate" ng-value="vm.newTime.startDate" />
+            <input type="date" id="startDate" ng-model="vm.newTime.startDate" />
         </div>
         <div layout="column" flex="40">
             <label for="startTime">Start Time</label>
-            <input type="time" id="startTime" ng-value="vm.newTime.startTime">
+            <input type="time" id="startTime" ng-model="vm.newTime.startTime">
         </div>
     </div>
     <div layout="row">
         <div layout="column" flex="40">
             <label for="endDate">End Date</label>
-            <input type="date" id="endDate" ng-value="vm.newTime.endDate">
+            <input type="date" id="endDate" ng-model="vm.newTime.endDate">
         </div>
         <div layout="column" flex="40">
             <label for="endTime">End Time</label>
-            <input type="time" id="endTime" ng-value="vm.newTime.endTime">
+            <input type="time" id="endTime" ng-model="vm.newTime.endTime">
         </div>
     </div>
     <div layout="row">
         <div layout="column" flex="60">
             <label for="project">Project</label>
-            <select name="project" id="project" ng-value="vm.newTime.project">
+            <select name="project" id="project">
                 <option value="">Select Project</option>
                 <option value="timeKeeper">Time Keeper</option>
             </select>
@@ -43,3 +43,4 @@
         </div>
     </div>
 </form>
+

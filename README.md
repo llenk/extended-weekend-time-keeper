@@ -40,14 +40,14 @@ CREATE TABLE "projects" (
 - [x] Add create table queries to README
 
 ### POST Route
-- [ ] Logic for time calculation
-- [ ] Post route server-side
-- [ ] Client side half
-- [ ] Connect to input form
+- [x] Logic for time calculation
+- [x] Post route server-side
+- [x] Client side half
+- [x] Connect to input form
 
 ### GET Route
 - [ ] Server-side half
-- [ ] Client side half
+- [x] Client side half
 - [ ] Display on DOM in table
 
 ### Delete Time
