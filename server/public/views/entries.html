@@ -1,1 +1,39 @@
 <h2>Entries</h2>
+
+<form ng-submit="vm.submitTimeEntry()">
+    <h3>Submit Time</h3>
+    <div layout="row">
+        <div layout="column" flex="40">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" ng-value="vm.newTime.startDate" />
+        </div>
+        <div layout="column" flex="40">
+            <label for="startTime">Start Time</label>
+            <input type="time" id="startTime" ng-value="vm.newTime.startTime">
+        </div>
+    </div>
+    <div layout="row">
+        <div layout="column" flex="40">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" ng-value="vm.newTime.endDate">
+        </div>
+        <div layout="column" flex="40">
+            <label for="endTime">End Time</label>
+            <input type="time" id="endTime" ng-value="vm.newTime.endTime">
+        </div>
+    </div>
+    <div layout="row">
+        <div layout="column" flex="60">
+            <label for="project">Project</label>
+            <select name="project" id="project" ng-value="vm.newTime.project">
+                <option value="">Select Project</option>
+                <option value="timeKeeper">Time Keeper</option>
+            </select>
+        </div>
+    </div>
+    <div layout="row">
+        <div layout="column" flex="30">
+            <input type="submit" />
+        </div>
+    </div>
+</form>

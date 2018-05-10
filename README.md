@@ -6,11 +6,11 @@
 - [x] Create server
 - [x] Set up public folder
 - [x] Add vendor JS files
-- [ ] Set up static HTML file
+- [x] Set up static HTML file
 - [x] Set up basic file structure
 
 ### HTML Form for Time
-- [ ] Make HTML form
+- [x] Make HTML form
 - [ ] Style nicely HTML form
 
 ### Database with Tables

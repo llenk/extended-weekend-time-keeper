@@ -11,6 +11,6 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function($http, $m
     };
 
     self.submitTimeEntry = function() {
-        console.log(self.newTime);5
+        console.log(self.newTime);
     };
 }]);
