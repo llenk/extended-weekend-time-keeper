@@ -11,6 +11,8 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         project: 2
     };
 
+    self.entries = {list: []};
+
     self.submitTimeEntry = function () {
         // TODO: entry validation
 
@@ -32,10 +34,14 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             method: 'GET',
             url: '/entry'
         }).then(function(response) {
-            console.log(response.data);
+            self.entries.list = response.data;
         }).catch(function(error) {
             console.log(error);
         });
+    };
+
+    self.deleteEntry = function() {
+
     };
 
     self.formatTime = function (entry) {
@@ -70,5 +76,7 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         formatted.time = Math.ceil((endDateObj.getTime() - startDateObj.getTime())/900000);
         console.log(formatted);
         return formatted;
-    }
+    };
+    
+    self.getEntries();
 }]);    

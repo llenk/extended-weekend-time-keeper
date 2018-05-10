@@ -1,7 +1,11 @@
-function timeStampString(timeArray) {
-    let timeString = '' + timeArray[0] + '-' + timeArray[1] + '-' + timeArray[2]
-        + ' ' + timeArray[3] + ':' + timeArray[4] + ':00';
-    return timeString;
+function timeStampArray(date) {
+    let timeArray = [];
+    timeArray.push(date.getFullYear());
+    timeArray.push(date.getMonth());
+    timeArray.push(date.getDate());
+    timeArray.push(date.getHours());
+    timeArray.push(date.getMinutes());
+    return timeArray;
 }
 
-module.exports = timeStampString;
+module.exports = timeStampArray;

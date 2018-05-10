@@ -43,4 +43,27 @@
         </div>
     </div>
 </form>
+<h3>All Entries</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Entry</th>
+            <th>Project</th>
+            <th>Start Date and Time</th>
+            <th>End Date and Time</th>
+            <th>Hours</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="entry in vm.entries.list">
+            <td>{{entry.name}}</td>
+            <td>{{entry.project}}</td>
+            <td>{{entry.start_time[1]+'/'+entry.start_time[2]+'/'+entry.start_time[0]+' '+entry.start_time[3]+':'+entry.start_time[4]}}</td>
+            <td>{{entry.end_time[1]+'/'+entry.end_time[2]+'/'+entry.end_time[0]+' '+entry.end_time[3]+':'+entry.end_time[4]}}</td>
+            <td>{{entry.time_quarter_hours/4}}</td>
+            <td>{{vm.deleteEntry(entry)}}</td>
+        </tr>
+    </tbody>
+</table>
 
