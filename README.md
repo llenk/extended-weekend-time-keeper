@@ -4,10 +4,10 @@
 
 ###Project Setup
 - [x] Create server
-- [ ] Set up public folder
+- [x] Set up public folder
 - [x] Add vendor JS files
 - [ ] Set up static HTML file
-- [ ] Set up basic file structure
+- [x] Set up basic file structure
 
 ### HTML Form for Time
 - [ ] Make HTML form

@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="vendors/angular-material.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/vendors/angular-material.min.css">
     <script src="/vendors/angular.js"></script>
     <script src="/vendors/angular-route.js"></script>
 
-    <script src="vendors/angular-animate.min.js"></script>
-    <script src="vendors/angular-aria.min.js"></script>
-    <script src="vendors/angular-material.min.js"></script>
+    <script src="/vendors/angular-animate.min.js"></script>
+    <script src="/vendors/angular-aria.min.js"></script>
+    <script src="/vendors/angular-material.min.js"></script>
 
     <script src="/scripts/client.js"></script>
+    <script src="scripts/services/time.service.js"></script>
+    <script src="scripts/controllers/entry.controller.js"></script>
+    <script src="scripts/controllers/project.controller.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
     <title>Time Keeper</title>
 </head>
-<body>
-    <h1>Time</h1>
+<body ng-app="TimeApp">
+    <h1>Time Keeper</h1>
+    <ng-view></ng-view>
 </body>
 </html>
