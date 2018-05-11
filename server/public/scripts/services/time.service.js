@@ -11,9 +11,19 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         project: 2
     };
 
+    self.newProject = {
+        name: '',
+        description: ''
+    };
+
     self.entries = {
         list: [], //what comes right from the get request
         displayList: [] //formatted with exactly what I want in the table
+    };
+
+    self.projects = {
+        list: [],
+        displayList: []
     };
 
     self.submitTimeEntry = function () {
@@ -49,10 +59,10 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         $http({
             method: 'DELETE',
             url: '/entry/' + entry.id
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response.status);
             self.getEntries();
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log(error);
         });
     };
@@ -109,5 +119,31 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         }
     }
 
+    self.submitProject = function () {
+        $http({
+            method: 'POST',
+            url: '/project',
+            data: self.newProject
+        }).then(function (response) {
+            // self.getProjects();
+            console.log(response.status);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+
+    self.getProjects = function () {
+        $http({
+            method: 'GET',
+            url: '/project'
+        }).then(function (response) {
+            self.projects.list = response.data;
+            console.log(self.projects.list);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
+
     self.getEntries();
+    self.getProjects();
 }]);    
