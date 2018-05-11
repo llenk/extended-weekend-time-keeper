@@ -20,3 +20,21 @@
         </div>
     </div>
 </form>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Hours</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="project in vm.projects.displayList">
+            <td>{{project.name}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.hours}}</td>
+            <td><button>Delete</button></td>
+        </tr>
+    </tbody>
+</table>

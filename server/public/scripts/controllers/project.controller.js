@@ -3,6 +3,7 @@ app.controller('ProjectController', ['TimeService', function (TimeService) {
     const self = this;
 
     self.newProject = TimeService.newProject;
+    self.projects = TimeService.projects;
     self.submitProject = TimeService.submitProject;
 
 }]);

@@ -138,11 +138,23 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             url: '/project'
         }).then(function (response) {
             self.projects.list = response.data;
-            console.log(self.projects.list);
+            self.projects.list.forEach(self.formatProject);
+            console.log(self.projects.displayList);
         }).catch(function(error) {
             console.log(error);
         });
     };
+
+    self.formatProject = function(item, index) {
+        self.projects.displayList[index] = {
+            name: item.name,
+            description: item.description,
+            hours: 0
+        };
+        if (item.sum) {
+            self.projects.displayList[index].hours = item.sum / 4;
+        }
+    }
 
     self.getEntries();
     self.getProjects();
