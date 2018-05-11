@@ -8,7 +8,7 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         startTime: '',
         endDate: '',
         endTime: '',
-        project: 2
+        project: ''
     };
 
     self.newProject = {
@@ -72,20 +72,20 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             description: '',
             startDate: '',
             endDate: '',
-            project: 2, // TODO: change this
+            project: entry.project,
             time: ''
         }
         formatted.description = entry.description;
         let start = {
             year: entry.startDate.getFullYear(),
-            month: entry.startDate.getMonth(),
+            month: entry.startDate.getMonth() + 1,
             day: entry.startDate.getDate(),
             hour: entry.startTime.getHours(),
             minute: entry.startTime.getMinutes()
         };
         let end = {
             year: entry.endDate.getFullYear(),
-            month: entry.endDate.getMonth(),
+            month: entry.endDate.getMonth() + 1,
             day: entry.endDate.getDate(),
             hour: entry.endTime.getHours(),
             minute: entry.endTime.getMinutes()
@@ -147,6 +147,7 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
 
     self.formatProject = function(item, index) {
         self.projects.displayList[index] = {
+            id: item.id,
             name: item.name,
             description: item.description,
             hours: 0
