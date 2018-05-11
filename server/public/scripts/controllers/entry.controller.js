@@ -6,4 +6,5 @@ app.controller('EntryController', ['TimeService', function (TimeService) {
     self.entries = TimeService.entries;
     self.submitTimeEntry = TimeService.submitTimeEntry; 
     self.deleteEntry = TimeService.deleteEntry;
+    self.projects = TimeService.projects;
 }]);

@@ -31,9 +31,9 @@
     <div layout="row">
         <div layout="column" flex="60">
             <label for="project">Project</label>
-            <select name="project" id="project">
+            <select name="project" id="project" ng-model="vm.newTime.project">
                 <option value="">Select Project</option>
-                <option value="timeKeeper">Time Keeper</option>
+                <option ng-repeat="project in vm.projects.list" value="{{project.id}}">{{project.name}}</option>
             </select>
         </div>
     </div>

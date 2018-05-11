@@ -8,12 +8,22 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         startTime: '',
         endDate: '',
         endTime: '',
-        project: 2
+        project: ''
+    };
+
+    self.newProject = {
+        name: '',
+        description: ''
     };
 
     self.entries = {
         list: [], //what comes right from the get request
         displayList: [] //formatted with exactly what I want in the table
+    };
+
+    self.projects = {
+        list: [],
+        displayList: []
     };
 
     self.submitTimeEntry = function () {
@@ -49,10 +59,10 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         $http({
             method: 'DELETE',
             url: '/entry/' + entry.id
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response.status);
             self.getEntries();
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log(error);
         });
     };
@@ -62,20 +72,20 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             description: '',
             startDate: '',
             endDate: '',
-            project: 2, // TODO: change this
+            project: entry.project,
             time: ''
         }
         formatted.description = entry.description;
         let start = {
             year: entry.startDate.getFullYear(),
-            month: entry.startDate.getMonth(),
+            month: entry.startDate.getMonth() + 1,
             day: entry.startDate.getDate(),
             hour: entry.startTime.getHours(),
             minute: entry.startTime.getMinutes()
         };
         let end = {
             year: entry.endDate.getFullYear(),
-            month: entry.endDate.getMonth(),
+            month: entry.endDate.getMonth() + 1,
             day: entry.endDate.getDate(),
             hour: entry.endTime.getHours(),
             minute: entry.endTime.getMinutes()
@@ -109,5 +119,61 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         }
     }
 
+    self.submitProject = function () {
+        $http({
+            method: 'POST',
+            url: '/project',
+            data: self.newProject
+        }).then(function (response) {
+            self.getProjects();
+            console.log(response.status);
+            self.newProject = {
+                name: '',
+                description: ''
+            };
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+
+    self.getProjects = function () {
+        $http({
+            method: 'GET',
+            url: '/project'
+        }).then(function (response) {
+            self.projects.list = response.data;
+            self.projects.displayList = [];
+            self.projects.list.forEach(self.formatProject);
+            console.log(self.projects.displayList);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
+
+    self.deleteProject = function(project) {
+        $http({
+            method: 'DELETE',
+            url: '/project/' + project.id
+        }).then(function (response) {
+            console.log(response.status);
+            self.getProjects();
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    self.formatProject = function(item, index) {
+        self.projects.displayList[index] = {
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            hours: 0
+        };
+        if (item.sum) {
+            self.projects.displayList[index].hours = item.sum / 4;
+        }
+    }
+
     self.getEntries();
+    self.getProjects();
 }]);    

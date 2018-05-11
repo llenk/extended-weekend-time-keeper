@@ -56,23 +56,23 @@ CREATE TABLE "projects" (
 - [x] Client side route
 
 ### HTML Form for Projects
-- [ ] Set up HTML form
-- [ ] Style nicely
+- [x] Set up HTML form
+- [x] Style nicely
 
 ### POST Route
-- [ ] Server side route
-- [ ] Connect to form
-- [ ] Client side route
+- [x] Server side route
+- [x] Connect to form
+- [x] Client side route
 
 ### List of Projects
-- [ ] Server side get route
-- [ ] Client side get route
-- [ ] Display on DOM
-- [ ] Add to input form for entries
-- [ ] Ability to delete project
+- [x] Server side get route
+- [x] Client side get route
+- [x] Display on DOM
+- [x] Add to input form for entries
+- [x] Ability to delete project
 
 ### Drop down
-- [ ] Add functionality to drop down
+- [x] Add functionality to drop down
 
 ## Hard Mode
 

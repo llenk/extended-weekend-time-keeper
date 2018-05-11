@@ -1,1 +1,40 @@
 <h2>Projects</h2>
+
+<h3>Add Project</h3>
+<form ng-submit="vm.submitProject()">
+    <div layout="row">
+        <div layout="column">
+            <label for="name">Project Name</label>
+            <input type="text" id="name" ng-model="vm.newProject.name">
+        </div>
+    </div>
+    <div layout="row">
+        <div layout="column">
+            <label for="description">Project Description</label>
+            <input type="text" id="name" ng-model="vm.newProject.description">
+        </div>
+    </div>
+    <div layout="row">
+        <div layout="column">
+            <input type="submit" />
+        </div>
+    </div>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Hours</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="project in vm.projects.displayList">
+            <td>{{project.name}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.hours}}</td>
+            <td><button ng-click="vm.deleteProject(project)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
