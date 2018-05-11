@@ -11,7 +11,10 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         project: 2
     };
 
-    self.entries = {list: []};
+    self.entries = {
+        list: [], //what comes right from the get request
+        displayList: [] //formatted with exactly what I want in the table
+    };
 
     self.submitTimeEntry = function () {
         // TODO: entry validation
@@ -29,19 +32,29 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         });
     };
 
-    self.getEntries = function() {
+    self.getEntries = function () {
         $http({
             method: 'GET',
             url: '/entry'
-        }).then(function(response) {
+        }).then(function (response) {
             self.entries.list = response.data;
-        }).catch(function(error) {
+            console.log(self.entries.list);
+            // self.entries.displayList = self.formatEntriesForDisplay(self.entries.list);
+        }).catch(function (error) {
             console.log(error);
         });
     };
 
-    self.deleteEntry = function() {
-
+    self.deleteEntry = function (entry) {
+        $http({
+            method: 'DELETE',
+            url: '/entry/' + entry.id
+        }).then(function(response) {
+            console.log(response.status);
+            self.getEntries();
+        }).catch(function(error) {
+            console.log(error);
+        });
     };
 
     self.formatTime = function (entry) {
@@ -73,10 +86,28 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         formatted.endDate = [end.year, end.month, end.day, end.hour, end.minute];
         let endDateObj = new Date(...formatted.endDate);
 
-        formatted.time = Math.ceil((endDateObj.getTime() - startDateObj.getTime())/900000);
+        formatted.time = Math.ceil((endDateObj.getTime() - startDateObj.getTime()) / 900000);
         console.log(formatted);
         return formatted;
     };
-    
+
+    self.formatEntriesForDisplay = function (entries) {
+        let formattedArray = [];
+        for (let i = 0; i < entries.length; i++) {
+            let formattedEntry = {};
+            formattedEntry.name = entries[i].name;
+            formattedEntry.start_time = entries[i].start_time[1] + '/' + entries[i].start_time[2]
+                + '/' + entries[i].start_time[0] + ' '
+                + entries[i].start_time[3].toLocaleString('en', { minimumIntegerDigits: 2 }) + ':'
+                + entries[i].start_time[4].toLocaleString('en', { minimumIntegerDigits: 2 });
+            formattedEntry.end_time = entries[i].end_time[1] + '/' + entries[i].end_time[2]
+                + '/' + entries[i].end_time[0] + ' '
+                + entries[i].end_time[3].toLocaleString('en', { minimumIntegerDigits: 2 }) + ':'
+                + entries[i].end_time[4].toLocaleString('en', { minimumIntegerDigits: 2 });
+            formattedEntry.project = entries[i].project;
+            formattedEntry.time = entries[i].time_quarter_hours / 4;
+        }
+    }
+
     self.getEntries();
 }]);    

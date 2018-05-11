@@ -44,13 +44,37 @@
     </div>
 </form>
 <h3>All Entries</h3>
+<!-- <mdt-table animate-sort-icon="true"
+             mdt-row="{
+                      data: vm.entries.displayList,
+                      'column-keys': [
+                          'name',
+                          'project',
+                          'start_time',
+                          'end_time',
+                          'time'
+                      ]
+                      }">
+    <mdt-header-row>
+      <mdt-column align-rule="left"
+                  column-sort="true">Entry Description</mdt-column>
+      <mdt-column align-rule="right"
+                  column-sort="true">Project</mdt-column>
+      <mdt-column align-rule="right"
+                  column-sort="true">Start</mdt-column>
+      <mdt-column align-rule="right"
+                  column-sort="true">End</mdt-column>
+      <mdt-column align-rule="right"
+                  column-sort="true">Hours</mdt-column>
+    </mdt-header-row>
+  </mdt-table> -->
 <table>
     <thead>
         <tr>
             <th>Entry</th>
             <th>Project</th>
-            <th>Start Date and Time</th>
-            <th>End Date and Time</th>
+            <th>Start</th>
+            <th>End</th>
             <th>Hours</th>
             <th>Delete</th>
         </tr>
@@ -59,10 +83,14 @@
         <tr ng-repeat="entry in vm.entries.list">
             <td>{{entry.name}}</td>
             <td>{{entry.project}}</td>
-            <td>{{entry.start_time[1]+'/'+entry.start_time[2]+'/'+entry.start_time[0]+' '+entry.start_time[3]+':'+entry.start_time[4]}}</td>
-            <td>{{entry.end_time[1]+'/'+entry.end_time[2]+'/'+entry.end_time[0]+' '+entry.end_time[3]+':'+entry.end_time[4]}}</td>
+            <td>{{entry.start_time[1]+'/'+entry.start_time[2]+'/'+entry.start_time[0]+' '
+                +entry.start_time[3].toLocaleString('en', {minimumIntegerDigits: 2})+':'
+                +entry.start_time[4].toLocaleString('en', {minimumIntegerDigits: 2})}}</td>
+            <td>{{entry.end_time[1]+'/'+entry.end_time[2]+'/'+entry.end_time[0]+' '
+                +entry.end_time[3].toLocaleString('en', {minimumIntegerDigits: 2})+':'
+                +entry.end_time[4].toLocaleString('en', {minimumIntegerDigits: 2})}}</td>
             <td>{{entry.time_quarter_hours/4}}</td>
-            <td>{{vm.deleteEntry(entry)}}</td>
+            <td><button ng-click="vm.deleteEntry(entry)">Delete</button></td>
         </tr>
     </tbody>
 </table>

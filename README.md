@@ -46,14 +46,14 @@ CREATE TABLE "projects" (
 - [x] Connect to input form
 
 ### GET Route
-- [ ] Server-side half
+- [x] Server-side half
 - [x] Client side half
-- [ ] Display on DOM in table
+- [x] Display on DOM in table
 
 ### Delete Time
-- [ ] Server side route
-- [ ] Functional button
-- [ ] Client side route
+- [x] Server side route
+- [x] Functional button
+- [x] Client side route
 
 ### HTML Form for Projects
 - [ ] Set up HTML form
