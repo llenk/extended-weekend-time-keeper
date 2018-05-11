@@ -68,11 +68,11 @@ CREATE TABLE "projects" (
 - [x] Server side get route
 - [x] Client side get route
 - [x] Display on DOM
-- [ ] Add to input form for entries
-- [ ] Ability to delete project
+- [x] Add to input form for entries
+- [x] Ability to delete project
 
 ### Drop down
-- [ ] Add functionality to drop down
+- [x] Add functionality to drop down
 
 ## Hard Mode
 

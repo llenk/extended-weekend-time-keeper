@@ -5,6 +5,7 @@ app.controller('ProjectController', ['TimeService', function (TimeService) {
     self.newProject = TimeService.newProject;
     self.projects = TimeService.projects;
     self.submitProject = TimeService.submitProject;
+    self.deleteProject = TimeService.deleteProject;
     TimeService.getProjects();
 
 }]);

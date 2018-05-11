@@ -24,6 +24,17 @@ router.get('/', function (req, res) {
             console.log(error);
             res.send(500);
         });
-})
+});
+
+router.delete('/:id', function(req, res) {
+    pool.query(`DELETE FROM "projects" 
+        WHERE "id" = $1;`, [req.params.id])
+        .then(function(response) {
+            res.send(200);
+        }).catch(function(error) {
+            console.log(error);
+            res.send(500);
+        });
+});
 
 module.exports = router;

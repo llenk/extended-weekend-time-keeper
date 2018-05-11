@@ -125,8 +125,12 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             url: '/project',
             data: self.newProject
         }).then(function (response) {
-            // self.getProjects();
+            self.getProjects();
             console.log(response.status);
+            self.newProject = {
+                name: '',
+                description: ''
+            };
         }).catch(function (error) {
             console.log(error);
         });
@@ -138,12 +142,25 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
             url: '/project'
         }).then(function (response) {
             self.projects.list = response.data;
+            self.projects.displayList = [];
             self.projects.list.forEach(self.formatProject);
             console.log(self.projects.displayList);
         }).catch(function(error) {
             console.log(error);
         });
     };
+
+    self.deleteProject = function(project) {
+        $http({
+            method: 'DELETE',
+            url: '/project/' + project.id
+        }).then(function (response) {
+            console.log(response.status);
+            self.getProjects();
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
 
     self.formatProject = function(item, index) {
         self.projects.displayList[index] = {
