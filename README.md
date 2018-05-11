@@ -77,10 +77,10 @@ CREATE TABLE "projects" (
 ## Hard Mode
 
 ### Number of Hours for Project
-- [ ] Write SQL request
-- [ ] Add to server side request
-- [ ] Add to client side request
-- [ ] Add to HTML table
+- [x] Write SQL request
+- [x] Add to server side request
+- [x] Add to client side request
+- [x] Add to HTML table
 
 ### Angular Material
 - [ ] Do something with angular material
