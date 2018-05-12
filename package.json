@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/llenk/extended-weekend-time-keeper#readme",
   "dependencies": {
+    "angular-material-data-table": "^0.10.10",
     "angular-material-icons": "^0.7.1",
     "angular-sanitize": "^1.6.9",
     "body-parser": "^1.18.2",

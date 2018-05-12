@@ -49,7 +49,7 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
         }).then(function (response) {
             self.entries.list = response.data;
             console.log(self.entries.list);
-            // self.entries.displayList = self.formatEntriesForDisplay(self.entries.list);
+            self.entries.displayList = self.formatEntriesForDisplay(self.entries.list);
         }).catch(function (error) {
             console.log(error);
         });
@@ -116,7 +116,9 @@ app.service('TimeService', ['$http', '$mdDialog', '$mdToast', function ($http, $
                 + entries[i].end_time[4].toLocaleString('en', { minimumIntegerDigits: 2 });
             formattedEntry.project = entries[i].project;
             formattedEntry.time = entries[i].time_quarter_hours / 4;
+            formattedArray.push(formattedEntry);
         }
+        return formattedArray;
     }
 
     self.submitProject = function () {

@@ -44,31 +44,33 @@
     </div>
 </form>
 <h3>All Entries</h3>
-<!-- <mdt-table animate-sort-icon="true"
-             mdt-row="{
-                      data: vm.entries.displayList,
-                      'column-keys': [
-                          'name',
-                          'project',
-                          'start_time',
-                          'end_time',
-                          'time'
-                      ]
-                      }">
-    <mdt-header-row>
-      <mdt-column align-rule="left"
-                  column-sort="true">Entry Description</mdt-column>
-      <mdt-column align-rule="right"
-                  column-sort="true">Project</mdt-column>
-      <mdt-column align-rule="right"
-                  column-sort="true">Start</mdt-column>
-      <mdt-column align-rule="right"
-                  column-sort="true">End</mdt-column>
-      <mdt-column align-rule="right"
-                  column-sort="true">Hours</mdt-column>
-    </mdt-header-row>
-  </mdt-table> -->
-<table>
+<md-table-container>
+        <table md-table>
+            <thead md-head md-order="myOrder">
+                <tr md-row>
+                    <th md-column md-order-by="name"><span>Entry</span></th>
+                    <th md-column md-order-by="project">Project</th>
+                    <th md-column md-order-by="start_time">Start</th>
+                    <th md-column>End</th>
+                    <th md-column md-numeric md-order-by="time">Hours</th>
+                    <th md-column>Delete</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr ng-repeat="entry in vm.entries.displayList | orderBy: myOrder" >
+                    <td md-cell>{{entry.name}}</td>
+                    <td md-cell>{{entry.project}}</td>
+                    <td md-cell>{{entry.start_time}}</td>
+                    <td md-cell>{{entry.end_time}}</td>
+                    <td md-cell>{{entry.time}}</td>
+                    <td md-cell>
+                        <button ng-click="vm.deleteEntry(entry)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+<!-- <table>
     <thead>
         <tr>
             <th>Entry</th>
@@ -93,5 +95,5 @@
             <td><button ng-click="vm.deleteEntry(entry)">Delete</button></td>
         </tr>
     </tbody>
-</table>
+</table> -->
 

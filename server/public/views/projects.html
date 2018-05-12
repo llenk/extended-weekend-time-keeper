@@ -20,21 +20,26 @@
         </div>
     </div>
 </form>
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Hours</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="project in vm.projects.displayList">
-            <td>{{project.name}}</td>
-            <td>{{project.description}}</td>
-            <td>{{project.hours}}</td>
-            <td><button ng-click="vm.deleteProject(project)">Delete</button></td>
-        </tr>
-    </tbody>
-</table>
+
+<md-table-container>
+    <table md-table>
+        <thead md-head md-order="myOrder">
+            <tr md-row>
+                <th md-column md-order-by="name"><span>Name</span></th>
+                <th md-column>Description</th>
+                <th md-column md-numeric md-order-by="hours">Hours</th>
+                <th md-column>Delete</th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr ng-repeat="project in vm.projects.displayList | orderBy: myOrder" >
+                <td md-cell>{{project.name}}</td>
+                <td md-cell>{{project.description}}</td>
+                <td md-cell>{{project.hours}}</td>
+                <td md-cell>
+                    <button ng-click="vm.deleteProject(project)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</md-table-container>
