@@ -86,8 +86,8 @@ CREATE TABLE "projects" (
 - [ ] Do something with angular material
 
 ### Sort by columns in time page
-- [ ] Figure out how to do so
-- [ ] Implement
+- [x] Figure out how to do so
+- [x] Implement
 
 ### Edit project name
 - [ ] SQL query
@@ -102,7 +102,7 @@ CREATE TABLE "projects" (
 - [ ] Server-side get route
 - [ ] Client-side get route
 - [ ] Display information on DOM
-- [ ] Generate PDF invoice
+- [ ] Generate PDF invoice??
 
 ### Chart.js
 - [ ] Research/import

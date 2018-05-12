@@ -22,17 +22,17 @@
 </form>
 
 <md-table-container>
-    <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-        <thead md-head>
+    <table md-table>
+        <thead md-head md-order="myOrder">
             <tr md-row>
-                <th md-column>Name</th>
+                <th md-column md-order-by="name"><span>Name</span></th>
                 <th md-column>Description</th>
-                <th md-column>Hours</th>
+                <th md-column md-numeric md-order-by="hours">Hours</th>
                 <th md-column>Delete</th>
             </tr>
         </thead>
         <tbody md-body>
-            <tr ng-repeat="project in vm.projects.displayList" md-row md-select="dessert" md-select-id="name" md-auto-select >
+            <tr ng-repeat="project in vm.projects.displayList | orderBy: myOrder" >
                 <td md-cell>{{project.name}}</td>
                 <td md-cell>{{project.description}}</td>
                 <td md-cell>{{project.hours}}</td>
