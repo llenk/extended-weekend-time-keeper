@@ -1,7 +1,12 @@
-<h2>Projects</h2>
-
-<h3>Add Project</h3>
-<form ng-submit="vm.submitProject()">
+<h1 ng-click="vm.showForm()">
+    <i class="material-icons" ng-show="!vm.formActive">
+        arrow_back_ios
+    </i>
+    <i class="material-icons" ng-show="vm.formActive">
+        arrow_forward_ios
+    </i>
+    Add Project</h1>
+<form ng-submit="vm.submitProject()" ng-show="vm.formActive">
     <div layout="row">
         <div layout="column">
             <label for="name">Project Name</label>
@@ -21,18 +26,21 @@
     </div>
 </form>
 
+<h1>All Projects</h1>
 <md-table-container>
     <table md-table>
         <thead md-head md-order="myOrder">
             <tr md-row>
-                <th md-column md-order-by="name"><span>Name</span></th>
+                <th md-column md-order-by="name">
+                    <span>Name</span>
+                </th>
                 <th md-column>Description</th>
                 <th md-column md-numeric md-order-by="hours">Hours</th>
                 <th md-column>Delete</th>
             </tr>
         </thead>
         <tbody md-body>
-            <tr ng-repeat="project in vm.projects.displayList | orderBy: myOrder" >
+            <tr ng-repeat="project in vm.projects.displayList | orderBy: myOrder">
                 <td md-cell>{{project.name}}</td>
                 <td md-cell>{{project.description}}</td>
                 <td md-cell>{{project.hours}}</td>

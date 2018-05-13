@@ -83,7 +83,7 @@ CREATE TABLE "projects" (
 - [x] Add to HTML table
 
 ### Angular Material
-- [ ] Do something with angular material
+- [x] Do something with angular material
 
 ### Sort by columns in time page
 - [x] Figure out how to do so

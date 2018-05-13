@@ -24,7 +24,8 @@ router.get('/', function (req, res) {
     pool.query(`SELECT "entries"."id", "entries"."start_time", "entries"."end_time", "entries"."name", "entries"."time_quarter_hours", "projects"."name" AS "project"
         FROM "entries"
         JOIN "projects" 
-        ON "entries"."project" = "projects"."id";`)
+        ON "entries"."project" = "projects"."id"
+        ORDER BY "entries"."id";`)
         .then(function (response) {
             for (let i = 0; i < response.rowCount; i++) {
                 response.rows[i].end_time = timeStampString(response.rows[i].end_time);

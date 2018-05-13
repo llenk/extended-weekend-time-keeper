@@ -6,11 +6,12 @@ main{
 }
 
 h1 {
-    margin: 0px;    
+    margin: 5px; 
+    color: #bc672c;   
 }
 
-h3 {
-    color: #bc672c;
+._md-nav-button-text {
+    color: #f2dcc5;
 }
 
 ul {
@@ -33,7 +34,8 @@ li {
 a {
     display: block;
     padding: 8px;
-    color: black
+    color: black;
+
 }
 
 a:hover {
@@ -41,6 +43,14 @@ a:hover {
     text-decoration: none;
 }
 
+input, select, button {
+    border: #f2dcc5 2px solid;
+}
+
 form div {
     padding: 5px;
+}
+
+.md-cell:first-child {
+    margin: 3px;
 }

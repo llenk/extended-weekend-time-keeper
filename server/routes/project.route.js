@@ -17,7 +17,8 @@ router.get('/', function (req, res) {
         FROM "projects"
         LEFT OUTER JOIN "entries" 
         ON "entries"."project" = "projects"."id"
-        GROUP BY "projects"."id";`)
+        GROUP BY "projects"."id"
+        ORDER BY "projects"."id";`)
         .then(function (response) {
             res.send(response.rows);
         }).catch(function(error) {

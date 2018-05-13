@@ -7,7 +7,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/', {
-            template: '<h2>Home</h2>'
+            template: '<h1>Home</h1>'
         }).when('/entries', {
             templateUrl: 'views/entries.html', 
             controller: 'EntryController as vm'
